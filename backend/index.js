@@ -14,6 +14,7 @@ app.get("/", (req,res)=>{
 })
 app.use("/api", route)
 
+
 connectWithDb()
 app.listen(process.env.PORT || 8000, (err) => {
   if (err) {
