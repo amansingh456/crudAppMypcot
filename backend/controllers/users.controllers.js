@@ -13,7 +13,8 @@ exports.create = (req, res) => {
     name: req.body.name,
     email: req.body.email,
     gender: req.body.gender,
-    status: req.body.status,
+    status: "Active",
+    image: req.body.image,
   });
 
   // save user in the database

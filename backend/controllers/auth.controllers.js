@@ -16,7 +16,7 @@ const registerUser = async (req, res) => {
       image: avatar,
     });
     await newUser.save();
-    const { isAdmin, password, ...otherDetails } = newUser._doc;
+    const { password, ...otherDetails } = newUser._doc;
     res.status(200).json({ otherDetails });
   } catch (error) {
     res.status(500).send(error);
@@ -41,7 +41,7 @@ const loginUser = async (req, res) => {
       process.env.JWT_KEY
     );
 
-    const { password, isAdmin, ...otherDetails } = user._doc;
+    const { password,...otherDetails } = user._doc;
     // console.log(user)
     res
       .cookie("access_token", token, {
@@ -54,9 +54,23 @@ const loginUser = async (req, res) => {
   }
 };
 
-
+const loggedInUser = async (req, res) => {
+  const { authorization } = req.headers;
+  if (!authorization) return res.status(401).send("you are not authorized to perform this action..!");
+  const token = authorization.split(" ")[1];
+  const user = jwt.verify(token, process.env.JWT_KEY);
+  // console.log("user",user)
+  try {
+    const res = await Authdb.find(user.id) 
+    res.status(200).send(res)
+  } catch (error) {
+    res.status(500).send(error)
+  }
+  
+};
 
 module.exports = {
   registerUser,
-  loginUser
+  loginUser,
+  loggedInUser
 };

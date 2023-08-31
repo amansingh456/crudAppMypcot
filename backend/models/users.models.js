@@ -11,7 +11,11 @@ const userSchema = new mongoose.Schema({
         unique: true
     },
     gender : String,
-    status : Boolean
+    status : String,
+    image:{
+        type:String,
+        required:true
+    }
 })
 
 const Userdb = mongoose.model('userdb', userSchema);
