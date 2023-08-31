@@ -28,7 +28,7 @@ const Login = () => {
          try {
             const {
                data: { token, user },
-            } = await axios.post("http://localhost:6789/api/login", obj);
+            } = await axios.post("https://cute-rose-quail-robe.cyclic.app/api/login", obj);
             
             localStorage.setItem("token", token);
             toast({
@@ -70,7 +70,7 @@ const Login = () => {
 
             <Box
                p={4}
-               bg="#f0ece9"
+               bg="#fce5cd"
                textAlign={"center"}
                maxW={"container.xl"}
                m={"auto"}

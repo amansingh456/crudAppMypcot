@@ -13,7 +13,7 @@ const Navbar = () => {
   useEffect(() => {
     async function getUser() {
       const { data } = await axios.get(
-        `http://localhost:6789/api/loggedinuser`,
+        `https://cute-rose-quail-robe.cyclic.app/api/loggedinuser`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -27,8 +27,8 @@ const Navbar = () => {
     }
   }, []);
   return (
-    <Box bg={"#cec0b8"} padding={"10px"} position={"sticky"}>
-     <Box bg={"#dcd2cd"} className="navBoxTwo" position={"sticky"}>
+    <Box bg={"#fdefe1"} padding={"10px"} position={"sticky"}>
+     <Box bg={"#fce5cd"} className="navBoxTwo" position={"sticky"}>
      <Flex
         as="nav"
         align="center"
@@ -46,7 +46,7 @@ const Navbar = () => {
           </Link>
         </Box>
         <Flex gap={3}>
-          {user && token ? (
+          {token ? (
             <>
               <Link to="/create">
                 <Button p={{base:2, sm:2, md:2}} colorScheme="green">

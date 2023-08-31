@@ -3,17 +3,15 @@ import { Link, useNavigate } from "react-router-dom";
 
 const SingleRecord = ({ post }) => {
 
-   console.log(post)
    var nowDate = new Date();
    var date = nowDate.getFullYear() + '/' + (nowDate.getMonth() + 1) + '/' + nowDate.getDate();
-   console.log(post._id)
    const navigate = useNavigate()
 
    return (
       <Box
          onClick={() => navigate(`/update/${post._id}`)}
          key={post._id}
-         bg="#f0ece9"
+         bg="#fdefe1"
          p={4}
          borderRadius="md"
          width="100%"
@@ -28,7 +26,7 @@ const SingleRecord = ({ post }) => {
             p={2}
          >
             <Box w={"25%"} p={2}>
-               <Image src={post.image} alt={name} borderRadius={"50%"} />
+               <Image src={post.avatar} alt={name} borderRadius={"50%"} />
             </Box>
             <Flex direction={"column"}>
                <Text
@@ -52,7 +50,12 @@ const SingleRecord = ({ post }) => {
                {post.name}
             </Text>
             <Text>
-               <Button>{post.status}</Button>
+               <Button bg={"#323232"} color={"white"} fontWeight={{sm:100, md:"bold"}} _hover={{ bg: '#323232' }} borderRadius={"100px"} _focus={{
+                  boxShadow:
+                    '0 0 1px 2px rgba(50, 50, 50, .75), 0 1px 1px rgba(0, 0, 0, .15)',
+                  bg: "#cec0b8",
+                  color: "#323232"
+                }}>{post.status}</Button>
             </Text>
          </Flex>
 

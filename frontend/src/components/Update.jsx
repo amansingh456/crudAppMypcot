@@ -12,13 +12,11 @@ import { useNavigate, useParams } from "react-router";
 
 const Update = () => {
   const id = useParams()
-  console.log(id)
   const [obj, setOjb] = useState({});
   const toast = useToast();
   const navigate = useNavigate();
   async function onSubmit() {
     const token = localStorage.getItem("token") || null;
-    console.log(obj)
     if (obj.name == undefined || obj.status == undefined || obj.image == undefined || obj.email == undefined || obj.gender == undefined) {
       toast({
         title: "Warning",
@@ -33,7 +31,7 @@ const Update = () => {
       try {
         if (token) {
           const { data } = await axios.put(
-            `http://localhost:6789/api/users/${id.id}`,
+            `https://cute-rose-quail-robe.cyclic.app/api/users/${id.id}`,
             obj,
             {
               headers: {
@@ -79,7 +77,7 @@ const Update = () => {
     try {
       if (token) {
         const { data } = await axios.delete(
-          `http://localhost:6789/api/users/${id.id}`,
+          `https://cute-rose-quail-robe.cyclic.app/api/users/${id.id}`,
           obj,
           {
             headers: {
@@ -120,12 +118,13 @@ const Update = () => {
 
   return (
     <Flex justify={"space-around"}
+      flexDirection={{base:"column-reverse", sm:"column-reverse" ,md:"row", lg:"row"}}
       align={"center"}
       borderRadius={"10px"}
       p={2}
       w={{ base: "90%", sm: "90%", md: "90%", lg: "90%" }}
     >
-      <Box bg={"#f0ece9"} w={{ base: "90%", sm: "90%", md: "90%", lg: "40%" }} m={"auto"} mt={{ base: 10, md: 20 }} mb={{ base: 10, md: 20 }} borderRadius={20}>
+      <Box bg={"#fce5cd"} w={{ base: "90%", sm: "90%", md: "90%", lg: "40%" }} m={"auto"} mt={{ base: 10, md: 20 }} mb={{ base: 10, md: 20 }} borderRadius={20}>
         <Box p={4} width={"100%"} maxW={"container.xl"} m={"auto"}>
           <Heading>Update Record</Heading>
           <Input
@@ -173,7 +172,7 @@ const Update = () => {
           </Button>
         </Box>
       </Box>
-      <Button onClick={()=>handleDelete(id)}>
+      <Button colorScheme="red" onClick={()=>handleDelete(id)}>
         Delete Record
       </Button>
     </Flex>

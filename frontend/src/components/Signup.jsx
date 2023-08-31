@@ -25,7 +25,7 @@ const Signup = () => {
     else{
       try {
         const { data } = await axios.post(
-          "http://localhost:6789/api/register",
+          "https://cute-rose-quail-robe.cyclic.appapi/register",
           obj
         );
         toast({
@@ -65,7 +65,7 @@ const Signup = () => {
         <Flex
           direction={"column"}
           p={4}
-          bg={"#f0ece9"}
+          bg={"#fce5cd"}
           gap={2}
           maxW={"container.xl"}
           m={"auto"}

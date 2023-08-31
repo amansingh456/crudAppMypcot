@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar"
 import Signup from "./components/Signup"
 import Login from "./components/Login"
 import CreateRecord from "./components/CreateRecord"
+import Footer from "./components/Footer"
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/login" element={<Login/>}/>
         <Route path="/create" element={<CreateRecord/>}/>
       </Routes>
+      <Footer/>
       </BrowserRouter>
     </ChakraProvider>
   )

@@ -29,7 +29,7 @@ import {
        try {
          if (token) {
            const { data } = await axios.post(
-             "http://localhost:6789/api/users",
+             "https://cute-rose-quail-robe.cyclic.app/api/users",
              obj,
              {
                headers: {
@@ -71,7 +71,7 @@ import {
    }
  
    return (
-     <Box bg={"#f0ece9"}  w={{base:"90%", sm:"80%", md:"60%", lg:"40%"}} m={"auto"} mt={{base:10, md:20}} mb={{base:10,md:20}} borderRadius={20}>
+     <Box bg={"#fce5cd"}  w={{base:"90%", sm:"80%", md:"60%", lg:"40%"}} m={"auto"} mt={{base:10, md:20}} mb={{base:10,md:20}} borderRadius={20}>
        <Box p={4} width={"100%"} maxW={"container.xl"} m={"auto"}>
          <Heading>Create Record</Heading>
          <Input

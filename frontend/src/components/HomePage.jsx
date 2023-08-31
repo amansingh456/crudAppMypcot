@@ -20,16 +20,15 @@ const Homepage = () => {
     })
     async function fetchPosts() {
       const { data } = await axios.get(
-        `http://localhost:6789/api/users`
+        `https://cute-rose-quail-robe.cyclic.app/api/users`
       );
-      console.log(data)
       setBlogPosts(data);
     }
     fetchPosts();
   }, []);
   return (
-    <Box bg={"#cec0b8"}>
-      <Box p={4} bg={"#cec0b8"} maxW={"container.xl"} m={"auto"} >
+    <Box bg={"#fdefe1"}>
+      <Box p={4} bg={"#fdefe1"} maxW={"container.xl"} m={"auto"} >
         <Flex flexDirection={{base:"column-reverse",sm:"column-reverse", md:"row"}} align={"center"} justifyContent={"space-between"}>
           <Box>
             <Text mt={{base:6, sm:8, md:20}} fontFamily={"Poppins"} fontSize={{base:"18px",sm:"20px", md:"24px", lg:"26px"}}>
@@ -44,7 +43,7 @@ const Homepage = () => {
         </Flex>
 
       </Box>
-      <Box p={4} bg={"#cec0b8"} maxW={"container.xl"} m={"auto"} >
+      <Box p={4} bg={"#fce5cd"} maxW={"container.xl"} m={"auto"} >
         <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={10} >
           {/* {console.log(blogPosts)} */}
           {blogPosts?.map((post, ind) => (
