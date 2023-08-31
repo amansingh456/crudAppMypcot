@@ -12,8 +12,8 @@ const registerUser = async (req, res) => {
     const newUser = new Authdb({
       username: req.body.username,
       email: req.body.email,
-      password: hash,
-      image: avatar,
+      password: hash
+     
     });
     await newUser.save();
     const { password, ...otherDetails } = newUser._doc;
@@ -59,7 +59,7 @@ const loggedInUser = async (req, res) => {
   if (!authorization) return res.status(401).send("you are not authorized to perform this action..!");
   const token = authorization.split(" ")[1];
   const user = jwt.verify(token, process.env.JWT_KEY);
-  // console.log("user",user)
+  console.log("user",user)
   try {
     const res = await Authdb.find(user.id) 
     res.status(200).send(res)

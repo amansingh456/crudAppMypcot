@@ -2,6 +2,8 @@ var Userdb = require("../models/users.models")
 
 // create and save new user
 exports.create = (req, res) => {
+  const avatar =
+    "https://th.bing.com/th/id/R.b057e6fb8c8ef4d7307987434cb448ad?rik=4%2ftohfpr4apS1g&riu=http%3a%2f%2fclipart-library.com%2fnewhp%2favatar_nick.png&ehk=KNFrQ5owNTmsvn4tREpL%2brqx01UO%2fpMeopUY9v1hrco%3d&risl=&pid=ImgRaw&r=0";
   // validate request
   if (!req.body) {
     res.status(400).send({ message: "Content can not be emtpy!" });
@@ -11,6 +13,7 @@ exports.create = (req, res) => {
   // new user
   const user = new Userdb({
     name: req.body.name,
+    avatar:avatar,
     email: req.body.email,
     gender: req.body.gender,
     status: "Active",
